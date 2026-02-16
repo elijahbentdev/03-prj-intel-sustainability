@@ -1,0 +1,141 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean sans-serif */
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(to bottom, #0071C5, #005b9f);
+    color: white;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: #0071C5; /* Intel Blue */
+    margin-bottom: 0.5rem;
+}
+
+header h1 {
+    color: white;
+}
+
+.subtitle {
+    color: white;
+    line-height: 1.5;
+}
+
+/* Timeline Container (Desktop - Horizontal) */
+.timeline-container {
+    display: flex;
+    flex-direction: row; /* Horizontal scroll */
+    justify-content: center; /* Center the timeline on desktop */
+    gap: 30px; /* Distinct spacing */
+    padding: 40px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    
+    /* Scroll Snap (Bonus) */
+    scroll-snap-type: x mandatory;
+    
+    /* Center the timeline items vertically in the container area */
+    align-items: flex-start; 
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    
+    /* Flex sizing for row layout */
+    min-width: 300px;
+    width: 300px;
+    
+    /* Scroll Snap Align */
+    scroll-snap-align: center;
+    
+    /* Transitions for Bonus Hover Effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Bonus: Hover Transforms */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 113, 197, 0.3); /* Intel Blue shadow hint */
+}
+
+/* Images */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Consistent sizing */
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+/* Typography map to Intel Blue */
+.card h2 {
+    color: #0071C5;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Interactivity: Hide/Reveal Details */
+.card-details {
+    /* Hidden by default */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    
+    /* Smooth Transition */
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* Reveal on Hover */
+.card:hover .card-details {
+    max-height: 200px; /* Approximate max height to allow content */
+    opacity: 1;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .timeline-container {
+        flex-direction: column; /* Vertical stack */
+        overflow-x: visible; /* Disable horizontal scroll */
+        padding: 20px;
+        align-items: center; /* Center cards in column */
+    }
+
+    .card {
+        width: 100%; /* Full width on mobile */
+        max-width: 500px; /* Prevent getting too wide on tablets */
+        /* Disable scroll snap on vertical if desired, or keep it */
+        scroll-snap-align: none;
+    }
+}
