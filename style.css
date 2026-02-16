@@ -48,6 +48,17 @@ body {
     
     /* Scroll Snap Align */
     scroll-snap-align: center;
+}
+
+/* Navigation - Intel Blue Theme */
+nav.navbar {
+    background-color: #0071C5 !important; /* Intel Blue */
+}
+
+/* Make logo white */
+nav.navbar .navbar-brand img {
+    filter: brightness(0) invert(1);
+}
     
     /* Transitions for Bonus Hover Effects */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
