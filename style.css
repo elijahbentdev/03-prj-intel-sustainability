@@ -48,7 +48,12 @@ header h1 {
     justify-content: flex-start; /* Ensure start is visible when scrolling */
     gap: 30px; /* Distinct spacing */
     padding: 40px;
+    padding-bottom: 20px; /* Space for scrollbar */
     overflow-x: auto; /* Enable horizontal scrolling */
+    
+    /* Centered Viewport */
+    max-width: 1300px;
+    margin: 0 auto;
     
     /* Scroll Snap (Bonus) */
     scroll-snap-type: x mandatory;
@@ -65,8 +70,9 @@ header h1 {
     overflow: hidden;
     
     /* Fixed width and prevent shrinking to force horizontal scroll */
-    width: 350px;
-    flex: 0 0 auto;
+    min-width: 300px;
+    width: 300px;
+    flex-shrink: 0;
     
     /* Scroll Snap Align */
     scroll-snap-align: center;
@@ -133,6 +139,7 @@ header h1 {
 
     .card {
         width: 100%; /* Full width on mobile */
+        min-width: 0; /* Reset min-width for small screens */
         max-width: 500px; /* Prevent getting too wide on tablets */
         flex: 1 1 auto; /* Allow flexible height in column mode */
         /* Disable scroll snap on vertical if desired, or keep it */
