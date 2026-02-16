@@ -125,6 +125,37 @@ function setLanguage(langCode) {
 document.addEventListener('DOMContentLoaded', () => {
     const browserLang = navigator.language || navigator.userLanguage || 'en';
     setLanguage(browserLang);
+
+    // Initialize MutationObserver to detect external changes (e.g., Google Translate)
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes') {
+                const htmlEl = document.documentElement;
+                const currentLang = htmlEl.getAttribute('lang');
+                const classList = htmlEl.classList;
+
+                // Check if language became Arabic or if translation tool detected Arabic
+                // Google Translate for Arabic often adds "translated-rtl" class or sets lang="ar"
+                const isArabic = currentLang.startsWith('ar') || classList.contains('translated-rtl');
+
+                // If Arabic is detected but we are not in RTL mode, enforce it
+                if (isArabic && htmlEl.getAttribute('dir') !== 'rtl') {
+                    setLanguage('ar');
+                }
+                
+                // If it reverts to English (and not just some other class change while staying Arabic)
+                else if (currentLang.startsWith('en') && htmlEl.getAttribute('dir') === 'rtl' && !classList.contains('translated-rtl')) {
+                    setLanguage('en');
+                }
+            }
+        });
+    });
+
+    // Start observing the html element
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['lang', 'class']
+    });
 });
 
 // Detect dynamic language changes
