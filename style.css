@@ -45,7 +45,7 @@ header h1 {
 .timeline-container {
     display: flex;
     flex-direction: row; /* Horizontal scroll */
-    justify-content: center; /* Center the timeline on desktop */
+    justify-content: flex-start; /* Ensure start is visible when scrolling */
     gap: 30px; /* Distinct spacing */
     padding: 40px;
     overflow-x: auto; /* Enable horizontal scrolling */
@@ -64,9 +64,9 @@ header h1 {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     overflow: hidden;
     
-    /* Flex sizing for row layout */
-    min-width: 300px;
-    width: 300px;
+    /* Fixed width and prevent shrinking to force horizontal scroll */
+    width: 350px;
+    flex: 0 0 auto;
     
     /* Scroll Snap Align */
     scroll-snap-align: center;
@@ -84,8 +84,7 @@ header h1 {
 /* Images */
 .card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover; /* Consistent sizing */
+    height: auto;
     display: block;
 }
 
@@ -135,6 +134,7 @@ header h1 {
     .card {
         width: 100%; /* Full width on mobile */
         max-width: 500px; /* Prevent getting too wide on tablets */
+        flex: 1 1 auto; /* Allow flexible height in column mode */
         /* Disable scroll snap on vertical if desired, or keep it */
         scroll-snap-align: none;
     }
