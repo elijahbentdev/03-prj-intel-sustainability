@@ -103,7 +103,7 @@ function setLanguage(langCode) {
     // 5. Update Placeholders for Inputs
     const emailInput = document.getElementById('emailInput');
     if (emailInput) {
-        emailInput.placeholder = cleanLang === 'ar' ? "name@example.com" : "name@example.com";
+        emailInput.placeholder = cleanLang === 'ar' ? "البريد الإلكتروني" : "name@example.com";
     }
 
     // 6. Update Learn More Buttons
