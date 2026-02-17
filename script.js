@@ -38,7 +38,7 @@ const translations = {
             'main-heading': "الاستدامة عبر العصور",
             'main-subtitle': "اكتشف رحلة إنتل عبر الزمن، وتعرف على كيف ساهم التزامنا بالابتكار في تشكيل مستقبل أكثر استدامة للتكنولوجيا وكوكبنا.",
             'strategies-heading': "استراتيجياتنا",
-            'strategy-1-title': "استراتيجية RISE",
+            'strategy-1-title': "استراتيجية رايز (RISE)",
             'strategy-2-title': "سلسلة التوريد",
             'strategy-3-title': "العدالة الرقمية",
             'modalLabel1': "تفاصيل استراتيجية RISE",
