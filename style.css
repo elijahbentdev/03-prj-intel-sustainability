@@ -45,6 +45,9 @@ body {
     /* Fixed width and prevent shrinking to force horizontal scroll */
     flex: 0 0 300px; /* Safer than min-width, prevents squishing */
     width: 300px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
     
     /* Scroll Snap Align */
     scroll-snap-align: center;
@@ -52,6 +55,15 @@ body {
 
 .timeline-container .card-content {
     padding: 20px;
+    flex: 1; /* Pushes image to bottom */
+}
+
+/* Ensure image covers the area nicely and hits the bottom */
+.timeline-container .card img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    margin-top: auto; /* Extra safety to push to bottom */
 }
 
 .timeline-container .card-content h2 {
