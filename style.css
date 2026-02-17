@@ -74,9 +74,11 @@ html[dir="rtl"] body {
 }
 
 /* Ensure timeline scroll behaves correctly in some browsers for RTL */
-html[dir="rtl"] .timeline-container {
-    flex-direction: row; 
-    /* In RTL, row starts from right. */
+@media (min-width: 769px) {
+    html[dir="rtl"] .timeline-container {
+        flex-direction: row; 
+        /* In RTL, row starts from right. */
+    }
 }
 
 /* Seamless Navbar (Task 1) */
