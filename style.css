@@ -140,3 +140,25 @@ html[dir="rtl"] .timeline-container {
     flex-direction: row; 
     /* In RTL, row starts from right. */
 }
+
+/* Seamless Navbar (Task 1) */
+.navbar {
+    background-color: #0071C5 !important;
+    margin-bottom: 0 !important;
+}
+
+/* RTL Alignment for Strategies (Task 2) */
+html[dir="rtl"] #strategies-section .text-center {
+    text-align: right !important;
+}
+
+/* Fix Flex Alignment in RTL for Cards */
+html[dir="rtl"] #strategies-section .card {
+    align-items: flex-start !important; /* Forces items to align to the right/start in RTL */
+}
+
+/* Ensure icons align with text in RTL or stay centered? 
+   User said "stay centered or align gracefully". 
+   If text aligns right, the icon (which is likely a block or inline-block above text) might look weird if centered.
+   Let's check the HTML for icons.
+*/
