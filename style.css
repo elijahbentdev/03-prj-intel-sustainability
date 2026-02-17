@@ -21,6 +21,7 @@ body {
     padding: 40px;
     padding-bottom: 20px; /* Space for scrollbar */
     overflow-x: auto; /* Enable horizontal scrolling */
+    flex-wrap: nowrap; /* CRITICAL: Prevent wrapping */
     
     /* Centered Viewport */
     max-width: 1300px;
@@ -42,73 +43,11 @@ body {
     border: none; /* Remove Bootstrap default border */
     
     /* Fixed width and prevent shrinking to force horizontal scroll */
-    min-width: 300px;
+    flex: 0 0 300px; /* Safer than min-width, prevents squishing */
     width: 300px;
-    flex-shrink: 0;
     
     /* Scroll Snap Align */
     scroll-snap-align: center;
-}
-
-/* Navigation - Intel Blue Theme */
-nav.navbar {
-    background-color: #0071C5 !important; /* Intel Blue */
-}
-
-/* Make logo white */
-nav.navbar .navbar-brand img {
-    filter: brightness(0) invert(1);
-}
-    
-    /* Transitions for Bonus Hover Effects */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Bonus: Hover Transforms */
-.timeline-container .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 113, 197, 0.3); /* Intel Blue shadow hint */
-}
-
-/* Images */
-.timeline-container .card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.timeline-container .card-content {
-    padding: 20px;
-}
-
-/* Typography map to Intel Blue */
-.timeline-container .card h2 {
-    color: #0071C5;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-.timeline-container .card h3 {
-    font-size: 1.1rem;
-    color: #444;
-    margin-bottom: 15px;
-}
-
-/* Interactivity: Hide/Reveal Details */
-.timeline-container .card-details {
-    /* Hidden by default */
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    
-    /* Smooth Transition */
-    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-}
-
-/* Reveal on Hover */
-.timeline-container .card:hover .card-details {
-    max-height: 200px; /* Approximate max height to allow content */
-    opacity: 1;
 }
 
 /* Mobile Responsive Adjustments */
@@ -122,9 +61,8 @@ nav.navbar .navbar-brand img {
 
     .timeline-container .card {
         width: 100%; /* Full width on mobile */
-        min-width: 0; /* Reset min-width for small screens */
-        max-width: 500px; /* Prevent getting too wide on tablets */
         flex: 1 1 auto; /* Allow flexible height in column mode */
+        max-width: 500px; /* Prevent getting too wide on tablets */
         scroll-snap-align: none;
     }
 }
